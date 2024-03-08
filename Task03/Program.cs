@@ -9,5 +9,4 @@
 }
 
 int[] array = [5, 15, 25, 35, 45];
-int size = array.Length;
-PrintInvertedArray(array, size);
+PrintInvertedArray(array, array.Length);
