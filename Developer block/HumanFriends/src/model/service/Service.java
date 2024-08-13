@@ -116,4 +116,8 @@ public class Service {
     public void printAllAnimals() {
         animalRegistry.printAllAnimals();
     }
+
+    public int totalCountOfAnimals() {
+        return animalRegistry.totalCountOfAnimals();
+    }
 }

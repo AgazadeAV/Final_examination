@@ -65,4 +65,8 @@ public class AnimalRegistry {
         allAnimals.sort(comparator);
         return allAnimals;
     }
+
+    public int totalCountOfAnimals() {
+        return findAllAnimals().size();
+    }
 }

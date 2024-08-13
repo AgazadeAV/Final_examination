@@ -199,6 +199,10 @@ public class ConsoleUI implements View {
         presenter.printAllAnimals();
     }
 
+    public void totalCountOfAnimals() {
+        System.out.println("Total number of created animals: " + presenter.totalCountOfAnimals() + ".\n");
+    }
+
     @Override
     public void finishWork() {
         work = false;

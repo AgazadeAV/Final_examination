@@ -57,4 +57,8 @@ public class Presenter {
     public void printAllAnimals() {
         service.printAllAnimals();
     }
+
+    public int totalCountOfAnimals() {
+        return service.totalCountOfAnimals();
+    }
 }

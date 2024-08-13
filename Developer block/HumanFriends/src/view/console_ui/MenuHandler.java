@@ -15,6 +15,7 @@ public class MenuHandler {
         buttons.add(new PrintAnimalCommands(consoleUI));
         buttons.add(new SortAnimalsByBirtDate(consoleUI));
         buttons.add(new PrintAllAnimals(consoleUI));
+        buttons.add(new ShowTotalAnimalsCount(consoleUI));
         buttons.add(new FinishWork(consoleUI));
     }
 
