@@ -1,5 +1,7 @@
 package model.animal.pack_animal.camel;
 
+import model.animal.Animal;
+import model.animal.IdGenerator;
 import model.animal.pack_animal.PackAnimal;
 
 import java.time.LocalDate;
@@ -7,8 +9,8 @@ import java.time.LocalDate;
 public class Camel extends PackAnimal {
     private int numberOfHumps;
 
-    public Camel(String name, LocalDate birthDate, int numberOfHumps) {
-        super(name, birthDate);
+    public Camel(IdGenerator idGenerator, String name, LocalDate birthDate, int numberOfHumps) {
+        super(idGenerator, name, birthDate);
         this.numberOfHumps = numberOfHumps;
     }
 
@@ -28,5 +30,15 @@ public class Camel extends PackAnimal {
     @Override
     public void carryLoad() {
         System.out.println("The camel is carrying supplies.");
+    }
+
+    @Override
+    public Class<? extends Animal> getType() {
+        return Camel.class;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s\nNumber of humps: %d\n", super.toString(), numberOfHumps);
     }
 }
