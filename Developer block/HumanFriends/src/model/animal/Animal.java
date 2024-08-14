@@ -1,10 +1,11 @@
 package model.animal;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Animal {
+public abstract class Animal implements Serializable {
     private IdGenerator idGenerator;
     private int id;
     private String name;

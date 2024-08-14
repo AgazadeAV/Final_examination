@@ -20,14 +20,10 @@ public class ConsoleUI implements View {
         work = true;
     }
 
-    String[] getAnimalTypes() {
-        return animalTypes;
-    }
-
     @Override
     public void startWork() {
         greetings();
-        //TODO presenter.readAnimalData(); coming soon
+        presenter.readAnimalData();
         selectItemFromMenu();
     }
 
@@ -195,6 +191,11 @@ public class ConsoleUI implements View {
         presenter.getAnimalsSortedByBirthdate();
     }
 
+    public void getAnimalsSortedById() {
+        System.out.println("Animals sorted by ID:");
+        presenter.getAnimalsSortedById();
+    }
+
     public void printAllAnimals() {
         presenter.printAllAnimals();
     }
@@ -207,7 +208,6 @@ public class ConsoleUI implements View {
     public void finishWork() {
         work = false;
         System.out.println("Good bye!");
-        //TODO presenter.sortById(); coming soon
-        //TODO presenter.saveTree(); coming soon
+        presenter.saveAnimalData();
     }
 }

@@ -2,9 +2,10 @@ package model.animal_registry;
 
 import model.animal.Animal;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class AnimalRegistry {
+public class AnimalRegistry implements Serializable {
     private Map<Class<? extends Animal>, List<Animal>> animalMap;
 
     public AnimalRegistry() {
@@ -68,5 +69,9 @@ public class AnimalRegistry {
 
     public int totalCountOfAnimals() {
         return findAllAnimals().size();
+    }
+
+    public void deleteAnimal() {
+        //todo реализовать :)
     }
 }

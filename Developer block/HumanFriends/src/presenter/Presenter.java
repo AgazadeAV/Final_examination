@@ -1,5 +1,6 @@
 package presenter;
 
+import model.animal_registry.AnimalRegistry;
 import model.service.Service;
 import view.View;
 
@@ -54,11 +55,23 @@ public class Presenter {
         service.getAnimalsSortedByBirthdate();
     }
 
+    public void getAnimalsSortedById() {
+        service.getAnimalsSortedById();
+    }
+
     public void printAllAnimals() {
         service.printAllAnimals();
     }
 
     public int totalCountOfAnimals() {
         return service.totalCountOfAnimals();
+    }
+
+    public void saveAnimalData() {
+        service.saveAnimalData();
+    }
+
+    public void readAnimalData() {
+        service.readAnimalData();
     }
 }

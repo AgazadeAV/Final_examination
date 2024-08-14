@@ -15,11 +15,13 @@ import model.animal.pet.dog.DogBuilder;
 import model.animal.pet.hamster.Hamster;
 import model.animal.pet.hamster.HamsterBuilder;
 import model.animal_registry.AnimalRegistry;
+import model.writer.FileHandler;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class Service {
+    FileHandler fileHandler;
     AnimalRegistry animalRegistry;
     IdGenerator idGenerator;
     CatBuilder catBuilder;
@@ -30,6 +32,7 @@ public class Service {
     CamelBuilder camelBuilder;
 
     public Service() {
+        fileHandler = new FileHandler();
         animalRegistry = new AnimalRegistry();
         idGenerator = new IdGenerator(animalRegistry);
         catBuilder = new CatBuilder(idGenerator);
@@ -113,11 +116,28 @@ public class Service {
         }
     }
 
+    public void getAnimalsSortedById() {
+        List<Animal> allAnimals = animalRegistry.getAnimalsSortedById();
+        for (Animal animal : allAnimals) {
+            System.out.println(animal);
+        }
+    }
+
     public void printAllAnimals() {
         animalRegistry.printAllAnimals();
     }
 
     public int totalCountOfAnimals() {
         return animalRegistry.totalCountOfAnimals();
+    }
+
+    public void saveAnimalData() {
+        fileHandler.save(animalRegistry);
+    }
+
+    public void readAnimalData() {
+        if (fileHandler.read() != null) {
+            animalRegistry = (AnimalRegistry) fileHandler.read();
+        }
     }
 }
