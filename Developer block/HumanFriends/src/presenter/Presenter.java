@@ -73,4 +73,8 @@ public class Presenter {
     public void readAnimalData() {
         service.readAnimalData();
     }
+
+    public void setPath(String filePath) {
+        service.setPath(filePath);
+    }
 }

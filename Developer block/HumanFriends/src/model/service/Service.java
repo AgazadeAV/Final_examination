@@ -24,23 +24,11 @@ public class Service {
     FileHandler fileHandler;
     AnimalRegistry animalRegistry;
     IdGenerator idGenerator;
-    CatBuilder catBuilder;
-    DogBuilder dogBuilder;
-    HamsterBuilder hamsterBuilder;
-    HorseBuilder horseBuilder;
-    DonkeyBuilder donkeyBuilder;
-    CamelBuilder camelBuilder;
 
     public Service() {
         fileHandler = new FileHandler();
         animalRegistry = new AnimalRegistry();
-        idGenerator = new IdGenerator(animalRegistry);
-        catBuilder = new CatBuilder(idGenerator);
-        dogBuilder = new DogBuilder(idGenerator);
-        hamsterBuilder = new HamsterBuilder(idGenerator);
-        horseBuilder = new HorseBuilder(idGenerator);
-        donkeyBuilder = new DonkeyBuilder(idGenerator);
-        camelBuilder = new CamelBuilder(idGenerator);
+        idGenerator = new IdGenerator();
     }
 
     public void createCamel(String name, LocalDate birthDate, int numberOfHumps) {
@@ -139,5 +127,9 @@ public class Service {
         if (fileHandler.read() != null) {
             animalRegistry = (AnimalRegistry) fileHandler.read();
         }
+    }
+
+    public void setPath(String filePath) {
+        fileHandler.setPath(filePath);
     }
 }

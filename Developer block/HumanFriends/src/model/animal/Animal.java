@@ -6,15 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Animal implements Serializable {
-    private IdGenerator idGenerator;
     private int id;
     private String name;
     private LocalDate birthDate;
     private List<String> commands;
 
     public Animal(IdGenerator idGenerator, String name, LocalDate birthDate) {
-        this.idGenerator = idGenerator;
-        this.id = idGenerator.generateId();
+        this.id = idGenerator.getCurrentId();
         this.name = name;
         this.birthDate = birthDate;
         this.commands = new ArrayList<>();

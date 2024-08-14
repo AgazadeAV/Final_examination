@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 public class ConsoleUI implements View {
+    private String path = "src/model/writer/serialized_files/animal_registry.ser";
     private String[] animalTypes = {"Dog", "Cat", "Hamster", "Horse", "Camel", "Donkey"};
     private MenuHandler menuHandler;
     private Presenter presenter;
@@ -18,6 +19,7 @@ public class ConsoleUI implements View {
         presenter = new Presenter(this);
         menuHandler = new MenuHandler(this);
         work = true;
+        presenter.setPath(path);
     }
 
     @Override
