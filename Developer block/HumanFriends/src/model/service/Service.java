@@ -105,8 +105,8 @@ public class Service {
         animalRegistry.printAnimalCommands(name);
     }
 
-    public boolean doesAnimalExist(String name) {
-        return animalRegistry.doesAnimalExist(name);
+    public boolean isAnimalExist(String name) {
+        return animalRegistry.isAnimalExist(name);
     }
 
     public void getAnimalsSortedByBirthdate() {

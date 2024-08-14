@@ -1,6 +1,5 @@
 package presenter;
 
-import model.animal_registry.AnimalRegistry;
 import model.service.Service;
 import view.View;
 
@@ -47,8 +46,8 @@ public class Presenter {
         service.printAnimalCommands(name);
     }
 
-    public boolean doesAnimalExist(String name) {
-        return service.doesAnimalExist(name);
+    public boolean isAnimalExist(String name) {
+        return service.isAnimalExist(name);
     }
 
     public void getAnimalsSortedByBirthdate() {

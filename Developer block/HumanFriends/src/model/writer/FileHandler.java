@@ -3,14 +3,14 @@ package model.writer;
 import java.io.*;
 
 public class FileHandler implements Writer {
-    private String filePath = "src/model/writer/serialized_files/data.ser";
+    private String filePath = "src/model/writer/serialized_files/data.azer";
 
     @Override
     public void save(Serializable serializable) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(filePath))) {
             objectOutputStream.writeObject(serializable);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("File not found, but will be created.");
         }
     }
 
@@ -19,7 +19,7 @@ public class FileHandler implements Writer {
         try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(filePath))) {
             return objectInputStream.readObject();
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("File not found, but will be created.");
             return null;
         }
     }

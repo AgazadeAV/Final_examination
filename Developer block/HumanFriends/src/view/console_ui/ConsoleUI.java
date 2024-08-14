@@ -160,7 +160,7 @@ public class ConsoleUI implements View {
         while (true) {
             System.out.println("Please enter animal's name:");
             String name = inputHandler.getInput();
-            if (presenter.doesAnimalExist(name)) {
+            if (presenter.isAnimalExist(name)) {
                 System.out.println("Please enter command:");
                 String command = inputHandler.getInput();
                 presenter.trainAnimal(name, command);
@@ -176,7 +176,7 @@ public class ConsoleUI implements View {
         while (true) {
             System.out.println("Please enter animal's name:");
             String name = inputHandler.getInput();
-            if (presenter.doesAnimalExist(name)) {
+            if (presenter.isAnimalExist(name)) {
                 System.out.println("Commands for " + name + ": ");
                 presenter.printAnimalCommands(name);
                 return;

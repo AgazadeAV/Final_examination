@@ -30,7 +30,7 @@ public class AnimalRegistry implements Serializable {
         getAnimalsSortedById().forEach(System.out::println);
     }
 
-    public boolean doesAnimalExist(String name) {
+    public boolean isAnimalExist(String name) {
         return findAnimalByName(name).size() > 0;
     }
 
