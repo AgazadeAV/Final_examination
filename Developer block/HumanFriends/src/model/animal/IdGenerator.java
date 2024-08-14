@@ -1,18 +1,27 @@
 package model.animal;
 
-import model.animal_registry.AnimalRegistry;
+import model.writer.FileHandler;
 
 import java.io.Serializable;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class IdGenerator implements Serializable {
-    private final AtomicInteger currentId;
+    private String path = "src/model/writer/serialized_files/id_generator.ser";
+    private transient FileHandler fileHandler;
+    private int currentId;
 
-    public IdGenerator(AnimalRegistry animalRegistry) {
-        this.currentId = new AtomicInteger(animalRegistry.getMaxId());
+    public IdGenerator() {
+        this.fileHandler = new FileHandler();
+        fileHandler.setPath(path);
     }
 
-    public int generateId() {
-        return currentId.incrementAndGet();
+    public int getCurrentId() {
+        Object readObject = fileHandler.read();
+        if (readObject == null) {
+            currentId = 1;
+        } else {
+            currentId = (Integer) readObject + 1;
+        }
+        fileHandler.save(currentId);
+        return currentId;
     }
 }
